@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import request, HttpResponse
 from .models import *
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import *
 from django.contrib import messages
 from datetime import datetime
-# from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # Create your views here.
 
