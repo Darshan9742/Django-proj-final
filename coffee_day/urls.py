@@ -1,5 +1,8 @@
 from django.urls import path
 from coffee_day.views import *
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login,logout
 
 urlpatterns = [
     path('index/', index, name='index'),
