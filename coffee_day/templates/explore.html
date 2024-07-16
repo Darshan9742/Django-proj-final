@@ -1,0 +1,238 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Items - BEANS & BLISS</title>
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #351010;
+            padding: 1rem;
+            color: white;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .navbar-nav li {
+            display: inline;
+        }
+
+        .navbar-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        /* Order Now Button Styles */
+        .order-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            margin-left: auto; /* Pushes the button to the right */
+        }
+
+        .order-btn:hover {
+            background-color: #555;
+        }
+
+        /* Explore Items Section Styles */
+        .explore-section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .explore-section h2 {
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            width: 80%;
+            background: #f4f4f4;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px; /* Adjust height as needed */
+            object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+        }
+
+        .card-desc {
+            padding: 1rem;
+        }
+
+        .card-desc h3 {
+            margin: 0.5rem 0;
+        }
+
+        .card-desc p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">BEANS & BLISS</div>
+        <ul class="navbar-nav">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="exploreitems.html">Explore Items</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+        <a href="#" class="order-btn">Order Now</a>
+    </nav>
+
+    <!-- Explore Items Section -->
+    <div class="explore-section">
+        <h2>Coffees</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="{% static 'images/c1.jpg' %}" alt="Coffee 1">
+                <div class="card-desc">
+                    <h3>Cappuccino</h3>
+                    <p>Rs. 99</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/coffee.jpg' %}" alt="Coffee 2">
+                <div class="card-desc">
+                    <h3>Latte</h3>
+                    <p>Rs. 49</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/c3.jpg' %}" alt="Coffee 3">
+                <div class="card-desc">
+                    <h3>Espresso</h3>
+                    <p>Rs. 99</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/c4.jpg' %}" alt="Coffee 4">
+                <div class="card-desc">
+                    <h3>Americano</h3>
+                    <p>Rs. 49</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/c5.jpg' %}" alt="Coffee 5">
+                <div class="card-desc">
+                    <h3>Mocha</h3>
+                    <p>Rs. 99</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/c6.jpg' %}" alt="Coffee 6">
+                <div class="card-desc">
+                    <h3>Flat White</h3>
+                    <p>Rs. 99</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Sandwiches</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="{% static 'images/s1.jpg' %}" alt="Sandwich 1">
+                <div class="card-desc">
+                    <h3>Chicken Sandwich</h3>
+                    <p>Rs. 99</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/s2.jpg' %}" alt="Sandwich 2">
+                <div class="card-desc">
+                    <h3>Ham Sandwich</h3>
+                    <p>Rs. 99</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/s3.jpg' %}" alt="Sandwich 3">
+                <div class="card-desc">
+                    <h3>Veggie Sandwich</h3>
+                    <p>Rs. 49</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Pastries</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="{% static 'images/p1.jpg' %}" alt="Pastry 1">
+                <div class="card-desc">
+                    <h3>Croissant</h3>
+                    <p>Rs. 99</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/p2.jpg' %}" alt="Pastry 2">
+                <div class="card-desc">
+                    <h3>Muffin</h3>
+                    <p>Rs. 49</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/p3.jpg' %}" alt="Pastry 3">
+                <div class="card-desc">
+                    <h3>Donut</h3>
+                    <p>Rs. 49</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 BEANS & BLISS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

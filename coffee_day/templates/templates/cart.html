@@ -1,0 +1,124 @@
+{% comment %} <!-- cart/cart.html -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.product-list {
+			display: flex;
+			flex-wrap: wrap; 
+            justify-content: space-between; 
+			list-style: none; 
+			padding: 0;
+		}
+
+		.product-item {
+			flex: 1; 
+			margin: 10px; 
+			border: 1px solid #ccc; 
+			padding: 10px;
+			text-align: center;
+		}
+
+		.buy-now-button {
+			display: block;
+			margin-top: 10px;
+			background-color: #007bff;
+			color: #fff;
+			text-decoration: none;
+			padding: 5px 10px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Your Shopping Cart</h1>
+	<div class="product-list">
+	    {% for item in cart_items %}
+	    <div class="product-item">
+		    <p>{{ item.product.name }} ({{ item.quantity }})</p>
+		    <p>Price: ${{ item.product.price }}</p>
+		    <a href="{% url 'admin_update:remove_from_cart' item.id %}">Remove</a>
+	    </div>
+	    {% empty %}
+	    <p>Your cart is empty.</p>
+	    {% endfor %}
+	</div>
+	<p>Total Price: ${{ total_price }}</p>
+	<a href="{% url 'admin_update:product_list' %}">Continue Shopping</a>
+    <a href={% url ''%}>Order!!!!!!!!!!!</a>
+</body>
+
+</html> {% endcomment %}
+
+<!-- templates/cart/cart.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shopping Cart</title>
+	<style>
+		.product-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			list-style: none;
+			padding: 0;
+		}
+
+		.product-item {
+			flex: 1;
+			max-width: 200px;
+			margin: 10px;
+			border: 1px solid #ccc;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.buy-now-button {
+			display: block;
+			margin-top: 10px;
+			background-color: #007bff;
+			color: #fff;
+			text-decoration: none;
+			padding: 5px 10px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>Your Shopping Cart</h1>
+
+	<form method="post" action="{% url 'admin_update:submit_order' %}">
+		{% csrf_token %}
+		<div class="product-list">
+			{% for item in cart_items %}
+			<div class="product-item">
+				<p>{{ item.product.name }} ({{ item.quantity }})</p>
+				<p>Price: ${{ item.product.price }}</p>
+				<a href="{% url 'admin_update:remove_from_cart' item.id %}">Remove</a>
+				<input type="hidden" name="products" value="{{ item.product.name }}">
+				<input type="hidden" name="quantities" value="{{ item.quantity }}">
+				<input type="hidden" name="dates_added" value="{{ item.date_added |date:"c" }}">
+			</div>
+			{% empty %}
+			<p>Your cart is empty.</p>
+			{% endfor %}
+		</div>
+
+		<p>Total Price: ${{ total_price }}</p>
+
+		<a href="{% url 'admin_update:product_list' %}">Continue Shopping</a>
+		<button type="submit" class="buy-now-button">Order</button>
+	</form>
+
+</body>
+
+</html>
