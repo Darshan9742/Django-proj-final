@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# app_name = 'coffe_day'
 
 class Product(models.Model):
 	name = models.CharField(max_length=100)
